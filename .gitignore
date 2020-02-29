@@ -21,10 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-src/.sass-cache/675affd5d146ea03a2134188041fb36156bfa47c/_home.scssc
-src/.sass-cache/675affd5d146ea03a2134188041fb36156bfa47c/_variables.scssc
-src/.sass-cache/675affd5d146ea03a2134188041fb36156bfa47c/_header.scssc
-src/.sass-cache/675affd5d146ea03a2134188041fb36156bfa47c/_resets.scssc
-src/.sass-cache/675affd5d146ea03a2134188041fb36156bfa47c/styles.scssc
+src/.sass-cache/
 src/App.css
 src/App.css.map
