@@ -1,0 +1,186 @@
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 0 20px;
+    background: linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.7) 1%,rgba(0,0,0,.5) 61%,transparent);
+    z-index: 99;
+
+    .logo svg {
+        max-width: 160px;
+    }
+
+    .navLinksLang{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 85px;
+        right: 35px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: $font-weight-bold;
+        letter-spacing: $letter-spacing-sm;
+
+        li {
+            writing-mode: vertical-lr;
+            margin: 0 auto;
+
+            &:first-child, &:last-child {
+                writing-mode: horizontal-tb;
+            }
+
+            &:last-child {
+                display: none;
+            }
+
+            a {
+                margin: 10px 0 0 0;
+            }
+        }
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .navLinks.active{
+        display: block;
+        position: absolute;
+    }
+
+    .hamburger {
+        padding: 1px 6px;
+        display: inline-block;
+        cursor: pointer;
+        transition-property: opacity, filter;
+        transition-duration: 0.15s;
+        transition-timing-function: linear;
+        font: inherit;
+        color: inherit;
+        text-transform: none;
+        background-color: transparent;
+        border: 0;
+        margin: 0;
+        overflow: visible;
+    }
+
+    .hamburger:hover {
+        opacity: 0.7; 
+    }
+
+    .hamburger-box {
+        width: 40px;
+        height: 24px;
+        display: inline-block;
+        position: relative; 
+    }
+
+    .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+        width: 40px;
+        height: 1.333333px;
+        background-color: #fff;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+    }
+
+    .hamburger-inner::before, .hamburger-inner::after {
+        content: "";
+        display: block;
+    }
+    
+    .hamburger-inner::before {
+        top: -10px; 
+    }
+    .hamburger-inner::after {
+        bottom: -10px; 
+    }
+
+    /*
+    * Squeeze
+    */
+
+    .hamburger--squeeze .hamburger-inner {
+        transition-duration: 0.1s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); 
+    }
+    
+    .hamburger--squeeze .hamburger-inner::before {
+        transition: top 0.1s 0.14s ease, opacity 0.1s ease; 
+    }
+    .hamburger--squeeze .hamburger-inner::after {
+        transition: bottom 0.1s 0.14s ease, transform 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19); 
+    }
+    
+    .hamburger--squeeze.active .hamburger-inner {
+        width: 32px;
+        transform: rotate(45deg);
+        transition-delay: 0.14s;
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    
+    .hamburger--squeeze.active .hamburger-inner::before {
+        top: 0;
+        opacity: 0;
+        transition: top 0.1s ease, opacity 0.1s 0.14s ease;
+    }
+
+    .hamburger--squeeze.active .hamburger-inner::after {
+        width: 32px;
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 0.1s ease, transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1); 
+    }    
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        height: 120px;
+        padding: 0 50px;
+
+        .logo svg {
+            max-width: 200px;
+        }
+
+        nav {
+            display: flex;
+            .navLinksLang {
+                position: relative;
+                flex-direction: row;
+                top: auto;
+                right: auto;
+                margin: 0 35px 0 0;
+                
+                li {
+                    writing-mode: horizontal-tb;
+                    margin: 0 10px 0 0;
+
+                    &:last-child {
+                        display: block;
+                        margin: 0 10px 0 20px;
+                    }
+                }
+
+                &:after {
+                    content: "";
+                    background: hsla(0,0%,100%,.5);
+                    width: 1px;
+                    height: 47px;
+                    position: absolute;
+                    right: -12px;
+                }
+
+            }
+        }
+    }
+}

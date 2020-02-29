@@ -1,0 +1,225 @@
+.banner {
+    position: relative;
+    background-image: url("assets/images/bannerHome.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20%;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+
+    .text {
+        position: absolute;
+        transform: translateY(-50%, -50%);
+        top: 50%;
+        left: 5%;
+    }
+
+    .subtitle, .title {
+        text-transform: uppercase;
+    }
+
+    .subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .title {
+        font-weight: $font-weight-light;
+        font-size: 47px;
+    }
+
+    .scrollDown {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        transform: translateY(-50%, -50%);
+        bottom: 5%;
+        left: 5%;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+
+            &:first-child {
+                margin: 25px 0;
+                text-transform: uppercase;
+                font-size: 12px;
+                letter-spacing: $letter-spacing-sm;
+            }
+
+            &:before {
+                content: '';
+                width: 40px;
+                height: 2px;
+                position: absolute;
+                background: #fff;
+                top: -10px;
+                left: 0;
+            }
+        }
+
+        .downArrow {
+            width: 29px;
+            height: 33.45px;
+            cursor: pointer;
+        }
+    }
+}
+
+section {
+    text-align: center;
+    
+    a {
+        display: block;
+        text-decoration: none;
+        color: #ceaf70;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        letter-spacing: $letter-spacing-sm;
+        font-size: 11px;
+        margin: 15px 0;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        letter-spacing: $letter-spacing-lg;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-size: 40px;
+        letter-spacing: 0.9px;
+        font-weight: $font-weight-light;
+        text-transform: uppercase;
+    }
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    justify-content: center;
+    max-width: 1350px;
+    margin: 0 auto;
+
+    h3 {
+        text-transform: uppercase;
+        color: #ceaf70;
+        margin: 0 0 25px;
+        letter-spacing: $letter-spacing-lg;
+        font-weight: $font-weight-light;
+        font-size: 14px;
+    }
+
+    .animatedText{
+
+        span {
+            text-align: center;
+            letter-spacing: 20px;
+            font-size: 72px;
+            font-weight: $font-weight-light;
+        }
+    }
+
+}
+
+.film {
+    width: 100%;
+    padding: 70px 0;
+
+    .content {
+        .contentInfo {
+            h3 {
+                font-size: 14px;
+                margin: 0 0 10px;
+                font-weight: $font-weight-light;
+                text-transform: uppercase;
+                letter-spacing: $letter-spacing-lg;
+            }
+
+            svg {
+                margin: 0 0 30px;
+                width: 203px;
+                height: 54.67px;
+            }
+        }
+    }
+}
+
+.residences {
+    .content {
+        position: relative;
+
+        .contentImg{
+            max-height: 330px;
+            overflow: hidden;
+
+            img {
+                width: 600px;
+                max-width: 600px;
+            }
+        }
+
+        .contentInfo{
+            width: 100%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+
+            h2 {
+                margin: 0 0 50px;
+            }
+
+            a {
+                padding: 15px 30px;
+                border: 1px solid hsla(40,49%,62%,.15);
+                font-weight: $font-weight-bold;
+                margin: 0 auto;
+                display: inline-block;
+                transition: 0.3s ease;
+
+                &:hover {
+                    background-color: rgba(206,175,112, 0.1);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .banner {
+        .text {
+
+        }
+
+        .subtitle, .title {
+
+        }
+
+        .subtitle {
+
+        }
+
+        .title {
+            font-size: 72px;
+        }
+
+        .scrollDown {
+
+            a {
+
+            }
+
+            &:before {
+
+            }
+        }
+
+        .downArrow {
+
+        }
+    }
+}
