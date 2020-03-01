@@ -41,10 +41,9 @@ class Home extends Component {
                     </div>
                 </section>
 
-                <img src={Render} />
-
                 <section className='film' id='film'>
                     <div className='content'>
+                        <img src={Render} />
                         <div className='contentInfo'>
                             <h3>This is</h3>
                             <Logo />

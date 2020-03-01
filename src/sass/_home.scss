@@ -70,7 +70,7 @@
 
 section {
     text-align: center;
-    
+
     a {
         display: block;
         text-decoration: none;
@@ -114,7 +114,7 @@ section {
     }
 
     .animatedText{
-
+        margin: 0 0 50px;
         span {
             text-align: center;
             letter-spacing: 20px;
@@ -127,10 +127,9 @@ section {
 
 .film {
     width: 100%;
-    padding: 70px 0;
-
     .content {
         .contentInfo {
+            padding: 70px 0;
             h3 {
                 font-size: 14px;
                 margin: 0 0 10px;
@@ -159,11 +158,11 @@ section {
             img {
                 width: 600px;
                 max-width: 600px;
+                margin: 0 auto;
             }
         }
 
         .contentInfo{
-            width: 100%;
             position: absolute;
             transform: translate(-50%, -50%);
             top: 50%;
@@ -189,18 +188,23 @@ section {
     }
 }
 
+@media only screen and (min-width: 600px){
+    .residences {
+        .content {
+            .contentImg {
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 768px) {
     .banner {
         .text {
             left: 7.5%;
-        }
-
-        .subtitle, .title {
-
-        }
-
-        .subtitle {
-
         }
 
         .title {
@@ -209,18 +213,82 @@ section {
 
         .scrollDown {
             left: 7.5%;
+        }
+    }
 
-            a {
-
-            }
-
-            &:before {
-
-            }
+    section {
+        .subtitle {
+            font-size: 20px;
         }
 
-        .downArrow {
+        h2 {
+            font-size: 72px;
+        }
+    }
 
+    .quote {
+        height: 60vh;
+
+        h3 {
+            margin: 0 0 50px;
+        }
+    }
+
+    .residences {
+        .content {
+            .contentImg{
+                max-height: 450px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    section{
+        margin: 0 0 120px;
+    }
+    
+    .film {
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 650px;
+            }
+
+            .contentInfo {
+                margin-left: 5%;
+
+                svg {
+                    width: 375px;
+                    height: 101px;
+                }
+            }
+        }
+    }
+
+    .residences {
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .contentImg {
+                img {
+                    width: 750px;
+                    max-width: 750px;
+                }
+            }
+
+            .contentInfo {
+                position: static;
+                transform: none;
+                top: auto;
+                left: auto;
+                margin-left: 5%;
+            }
         }
     }
 }

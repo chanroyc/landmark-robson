@@ -36,7 +36,12 @@ class App extends Component {
   }
 
   componentDidMount(){
-    const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    window.addEventListener("resize", ()=>{
+      vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    })
 
     window.addEventListener('scroll', ()=>{
       this.setState({
