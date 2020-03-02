@@ -8,6 +8,8 @@ import Render from '../assets/images/render.jpg';
 import Logo from '../assets/images/logoWhite';
 import Residences from '../assets/images/bannerResidences.jpg';
 
+import TextPath from '../assets/images/textPath';
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -34,6 +36,7 @@ class Home extends Component {
             $('.banner .scrollDown .downArrow').css('opacity', 1);
             $('.banner .scrollDown .downArrow').addClass('animated slideInDownShort');
         }, 2250)
+
     }
 
     render(){
@@ -59,12 +62,7 @@ class Home extends Component {
 
                 <section className='quote' ref={this.scrollDiv}>
                     <h3>A Landmark</h3>
-                    <div className='animatedText'>
-                        <span>L</span>
-                        <span>I</span>
-                        <span>F</span>
-                        <span>E</span>                        
-                    </div>
+                    <TextPath />
                 </section>
 
                 <section className='film' id='film'>
