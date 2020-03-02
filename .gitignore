@@ -23,4 +23,3 @@ yarn-debug.log*
 yarn-error.log*
 src/.sass-cache/
 src/App.css
-src/App.css.map
