@@ -1,4 +1,7 @@
 import React, { Component, createRef } from 'react';
+import '../animate.css';
+
+import $ from 'jquery';
 
 import downArrow from '../assets/images/downArrow.png';
 import Render from '../assets/images/render.jpg';
@@ -10,6 +13,29 @@ class Home extends Component {
         super(props);
         this.scrollDiv = createRef();
     }
+
+    componentDidMount() {
+        setTimeout(() => {
+            $('.banner .text .subtitle').css('opacity', 1);
+            $('.banner .text .subtitle').addClass('animated slideInRight');
+        },1000)
+
+        setTimeout(()=> {
+            $('.banner .text .title').css('opacity', 1);
+            $('.banner .text .title').addClass('animated slideInRight');
+        },1250)
+
+        setTimeout(()=>{
+            $('.banner .scrollDown a').css('opacity', 1);
+            $('.banner .scrollDown a:first-child').addClass('animated slideInRight');
+        }, 1750)
+
+        setTimeout(()=> {
+            $('.banner .scrollDown .downArrow').css('opacity', 1);
+            $('.banner .scrollDown .downArrow').addClass('animated slideInDownShort');
+        }, 2250)
+    }
+
     render(){
         return(
             <main>

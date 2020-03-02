@@ -5,7 +5,7 @@ import './animate.css';
 import $ from 'jquery';
 import 'jquery-ui';
 
-import {BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 
 import Home from './components/Home';
 
