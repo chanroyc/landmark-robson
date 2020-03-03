@@ -307,8 +307,9 @@ section {
     font-size: 14px; }
   .quote svg {
     max-width: 500px;
-    margin: 0 0 25px;
-    transition: 0.1s ease; }
+    margin: 0 0 25px; }
+    .quote svg text textPath tspan {
+      transition: 0.25s ease; }
 
 .film {
   width: 100%; }
@@ -367,6 +368,12 @@ section {
     font-size: 20px; }
   section h2 {
     font-size: 72px; }
+  section .content .contentImg {
+    position: relative;
+    transition: 1.6s ease; }
+  section .content .contentInfo {
+    position: relative;
+    transition: 1.6s ease; }
 
   .quote {
     height: 60vh; }
@@ -397,7 +404,7 @@ section {
       width: 750px;
       max-width: 750px; }
     .residences .content .contentInfo {
-      position: static;
+      position: relative;
       transform: none;
       top: auto;
       left: auto;

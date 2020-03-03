@@ -136,7 +136,14 @@ section {
     svg {
         max-width: 500px;
         margin: 0 0 25px;
-        transition: 0.1s ease;
+        
+        text {
+            textPath {
+                tspan {
+                    transition: 0.25s ease;
+                }
+            }
+        }
     }
 }
 
@@ -239,14 +246,20 @@ section {
         h2 {
             font-size: 72px;
         }
+
+        .content .contentImg {
+            position: relative;
+            transition: 1.6s ease;
+        }
+
+        .content .contentInfo {
+            position: relative;
+            transition: 1.6s ease;
+        }
     }
 
     .quote {
         height: 60vh;
-
-        h3 {
-            // margin: 0 0 50px;
-        }
     }
 
     .residences {
@@ -298,7 +311,7 @@ section {
             }
 
             .contentInfo {
-                position: static;
+                position: relative;
                 transform: none;
                 top: auto;
                 left: auto;

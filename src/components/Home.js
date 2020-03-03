@@ -37,6 +37,19 @@ class Home extends Component {
             $('.banner .scrollDown .downArrow').addClass('animated slideInDownShort');
         }, 2250)
 
+        function onScroll(){
+            requestAnimationFrame(()=>{
+                let scrollSpeed = window.scrollY/25;
+                $('.film .content .contentImg').css('top', (50 - scrollSpeed));
+                $('.residences .content .contentImg').css('top', (-50 + scrollSpeed));
+
+                $('.film .content .contentInfo').css('top', (-50 + scrollSpeed*0.5))
+                $('.residences .content .contentInfo').css('top', (50 - scrollSpeed*0.5));
+            })
+        }
+
+        window.addEventListener('scroll', onScroll);
+
     }
 
     render(){
@@ -67,7 +80,10 @@ class Home extends Component {
 
                 <section className='film' id='film'>
                     <div className='content'>
-                        <img src={Render} />
+                        <div className='contentImg'>
+                            <a href="#"><img src={Render} /></a>
+                        </div>
+
                         <div className='contentInfo'>
                             <h3>This is</h3>
                             <Logo />
