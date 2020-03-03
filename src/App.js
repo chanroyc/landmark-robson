@@ -32,6 +32,7 @@ class App extends Component {
                     bgImageURL: bannerHome,
                     currScrollHeight: 0,
                     prevScrollHeight: 0,
+                    viewHeight: 0,
                   };
   }
 
@@ -39,8 +40,11 @@ class App extends Component {
 
     let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
+    this.setState({viewHeight: vh});
+
     window.addEventListener("resize", ()=>{
       vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      this.setState({viewHeight: vh});
     })
     
     window.addEventListener('scroll', ()=>{
@@ -52,7 +56,7 @@ class App extends Component {
         if(this.state.currScrollHeight < this.state.prevScrollHeight ){
           $('header').removeClass('animated slideOutUp');
           $('header').addClass('animated slideInDown');
-        }else if(this.state.currScrollHeight > vh ){
+        }else if(this.state.currScrollHeight > this.state.viewHeight ){
           $('header').removeClass('animatedSlideInDown');
           $('header').addClass('animated slideOutUp');
         }

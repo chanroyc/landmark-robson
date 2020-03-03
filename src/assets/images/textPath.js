@@ -4,6 +4,13 @@ import $ from 'jquery';
 
 class textPath extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            viewHeight: 0,
+        }
+    }
+
     componentDidMount(){
         let textL = $('#textL');
         let textI = $('#textI');
@@ -12,16 +19,24 @@ class textPath extends Component {
 
         let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
+        this.setState({viewHeight: vh});
+
+        window.addEventListener('resize', () => {
+            vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+            this.setState({viewHeight: vh});
+        })
+
         function updateTextY(letter, offset){
             letter.attr('dy', offset)
         }
 
-        function onScroll(){
+        window.addEventListener('scroll', () => {
             let scrollLE = window.scrollY*1.2/25 - 19.28;
             let scrollI = 66 - window.scrollY*1.75/25 + 19.28;
             let scrollF = 44 - window.scrollY*1.2/25 + 19.28;
 
-            if( window.scrollY > vh/2){
+            if( window.scrollY > this.state.viewHeight/2){
                 requestAnimationFrame(()=>{
                     if (scrollLE < 22){
                         updateTextY(textL, scrollLE)
@@ -35,18 +50,15 @@ class textPath extends Component {
                     if(scrollF > 22){
                         updateTextY(textF, scrollF);
                     }                           
-            })
-
+                })
             }
-
-        }
-        window.addEventListener('scroll', onScroll);
+        });
 
     }
     render(){
         return(
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 136">
-                <path id="pathL" stroke="none" fill="none" stroke-miterlimit="10" d="M0 64h68"/>
+                <path id="pathL" stroke="none" fill="none" strokeMiterlimit="10" d="M0 64h68"/>
 
                 <text fontSize="60" fill="white">
                     <textPath href="#pathL">
@@ -56,7 +68,7 @@ class textPath extends Component {
                     </textPath>
                 </text>
                 
-                <path id="pathI" stroke="none" fill="none" stroke-miterlimit="10" d="M68 64h68"/>
+                <path id="pathI" stroke="none" fill="none" strokeMiterlimit="10" d="M68 64h68"/>
 
                 <text fontSize="60" fill="white">
                     <textPath href="#pathI">
@@ -66,7 +78,7 @@ class textPath extends Component {
                     </textPath>
                 </text>
 
-                <path id="pathF" stroke="none" fill="none" stroke-miterlimit="10" d="M136 64h68"/>
+                <path id="pathF" stroke="none" fill="none" strokeMiterlimit="10" d="M136 64h68"/>
 
                 <text fontSize="60" fill="white">
                     <textPath href="#pathF">
@@ -76,7 +88,7 @@ class textPath extends Component {
                     </textPath>
                 </text>
                 
-                <path id="pathE" stroke="none" fill="none" stroke-miterlimit="10" d="M204 64h68"/>
+                <path id="pathE" stroke="none" fill="none" strokeMiterlimit="10" d="M204 64h68"/>
 
                 <text fontSize="60" fill="white">
                     <textPath href="#pathE">

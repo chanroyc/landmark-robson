@@ -14,9 +14,17 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.scrollDiv = createRef();
+        this.state = {
+            viewWidth: 0,
+        }
     }
 
     componentDidMount() {
+
+        let vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+        this.setState({viewWidth: vw});
+
         setTimeout(() => {
             $('.banner .text .subtitle').css('opacity', 1);
             $('.banner .text .subtitle').addClass('animated slideInRight');
@@ -37,18 +45,33 @@ class Home extends Component {
             $('.banner .scrollDown .downArrow').addClass('animated slideInDownShort');
         }, 2250)
 
-        function onScroll(){
+        window.addEventListener('resize', () => {
+            vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+
+            this.setState({viewWidth: vw});
+        })
+
+        window.addEventListener('scroll', ()=> {
             requestAnimationFrame(()=>{
                 let scrollSpeed = window.scrollY/25;
-                $('.film .content .contentImg').css('top', (50 - scrollSpeed));
-                $('.residences .content .contentImg').css('top', (-50 + scrollSpeed));
 
-                $('.film .content .contentInfo').css('top', (-50 + scrollSpeed*0.5))
-                $('.residences .content .contentInfo').css('top', (50 - scrollSpeed*0.5));
+                if(this.state.viewWidth < 1024){
+                    console.log('hello');
+                    $('.film .content .contentImg').css('top', 0);
+                    $('.residences .content .contentImg').css('top', 0);
+
+                    $('.film .content .contentInfo').css('top', 0)
+                    $('.residences .content .contentInfo').css('top', '50%');
+
+                }else {
+                    $('.film .content .contentImg').css('top', (50 - scrollSpeed));
+                    $('.residences .content .contentImg').css('top', (-50 + scrollSpeed));
+
+                    $('.film .content .contentInfo').css('top', (-50 + scrollSpeed*0.5))
+                    $('.residences .content .contentInfo').css('top', (50 - scrollSpeed*0.5));
+                }
             })
-        }
-
-        window.addEventListener('scroll', onScroll);
+        });
 
     }
 
