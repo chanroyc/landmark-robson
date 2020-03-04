@@ -53,22 +53,23 @@ class Home extends Component {
 
         window.addEventListener('scroll', ()=> {
             requestAnimationFrame(()=>{
-                let scrollSpeed = window.scrollY/25;
+                let scrollSpeed = window.scrollY/200;
 
                 if(this.state.viewWidth < 1024){
-                    console.log('hello');
-                    $('.film .content .contentImg').css('top', 0);
-                    $('.residences .content .contentImg').css('top', 0);
+                    $('.residences .content .contentImg').css('transform', ('translateY(0%)'))
+                    $('.film .content .contentImg').css('transform', ('translateY(0%)'))
 
-                    $('.film .content .contentInfo').css('top', 0)
-                    $('.residences .content .contentInfo').css('top', '50%');
+                    $('.residences .content .contentInfo').css('transform', ('translate(-50%, -50%)'))
 
+                    $('.film .content .contentImg').css('transform', ('translateY(0%)'))
                 }else {
-                    $('.film .content .contentImg').css('top', (50 - scrollSpeed));
-                    $('.residences .content .contentImg').css('top', (-50 + scrollSpeed));
+                    $('.film .content .contentImg').css('transform', 'translateY(calc(5% - ' + scrollSpeed + '%))');
 
-                    $('.film .content .contentInfo').css('top', (-50 + scrollSpeed*0.5))
-                    $('.residences .content .contentInfo').css('top', (50 - scrollSpeed*0.5));
+                    $('.residences .content .contentImg').css('transform', 'translateY(calc(-5% + ' + scrollSpeed + '%))')
+
+                    $('.film .content .contentInfo').css('transform', 'translateY(calc(-5% + ' + scrollSpeed + '%))')
+
+                    $('.residences .content .contentInfo').css('transform', 'translateY(calc(5% - ' + scrollSpeed + '%))');
                 }
             })
         });

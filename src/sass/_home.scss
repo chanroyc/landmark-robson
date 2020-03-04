@@ -249,12 +249,12 @@ section {
 
         .content .contentImg {
             position: relative;
-            transition: 1.6s ease;
+            transition: 0.3s ease;
         }
 
         .content .contentInfo {
             position: relative;
-            transition: 1.6s ease;
+            transition: 0.3s ease;
         }
     }
 
@@ -290,8 +290,8 @@ section {
                 margin-left: 5%;
 
                 svg {
-                    width: 375px;
-                    height: 101px;
+                    width: 100%;
+                    height: auto;
                 }
             }
         }
